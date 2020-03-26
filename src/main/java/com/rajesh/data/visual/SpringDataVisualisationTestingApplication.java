@@ -7,7 +7,10 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+import org.thymeleaf.spring5.SpringTemplateEngine;
+import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
+import org.thymeleaf.templatemode.TemplateMode;
 
 import com.rajesh.data.visual.chartjs.dao.CanvasjsChartDao;
 import com.rajesh.data.visual.chartjs.dao.CanvasjsChartDaoImpl;
@@ -45,13 +48,5 @@ public class SpringDataVisualisationTestingApplication extends WebMvcConfigurerA
         resolver.setViewClass(JstlView.class);
         return resolver;
     }
-	
-	@Bean
-	public ThymeleafViewResolver thymeleafViewResolver() {
-		ThymeleafViewResolver resolver = new ThymeleafViewResolver();
-		String viewNames[]= {"templates/*"};
-		resolver.setViewNames(viewNames);
-		return resolver;
-	}
 
 }
